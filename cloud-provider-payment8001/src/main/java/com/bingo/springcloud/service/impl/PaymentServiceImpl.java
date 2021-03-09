@@ -1,8 +1,8 @@
-package com.atguigu.springcloud.service.impl;
+package com.bingo.springcloud.service.impl;
 
-import com.atguigu.springcloud.dao.PaymentDao;
-import com.atguigu.springcloud.entities.Payment;
-import com.atguigu.springcloud.service.PaymentService;
+import com.bingo.springcloud.dao.PaymentDao;
+import com.bingo.springcloud.entities.Payment;
+import com.bingo.springcloud.service.PaymentService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

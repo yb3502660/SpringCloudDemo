@@ -1,9 +1,9 @@
 server:
-  port: 8001
+  port: 11111
 
 spring:
   application:
-    name: cloud-payment-service
+    name: cloud-order-consumer
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: org.gjt.mm.mysql.Driver

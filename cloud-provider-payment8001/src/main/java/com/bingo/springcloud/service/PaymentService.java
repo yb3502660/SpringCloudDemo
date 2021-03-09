@@ -1,7 +1,6 @@
-package com.atguigu.springcloud.service;
+package com.bingo.springcloud.service;
 
-import com.atguigu.springcloud.entities.Payment;
-import org.apache.ibatis.annotations.Param;
+import com.bingo.springcloud.entities.Payment;
 
 /**
  * @author:yaobin
