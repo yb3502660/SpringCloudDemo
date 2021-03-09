@@ -1,6 +1,7 @@
 package com.bingo.springcloud.controller;
 
 import com.bingo.springcloud.entities.CommonResult;
+import com.bingo.springcloud.entities.Payment;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,9 +23,16 @@ public class OrderController {
     
     @Resource
     private RestTemplate restTemplate;
+
+    @GetMapping("/consumer/payment/create")
+    public CommonResult<Payment> create( Payment payment) {
+        log.info("consumer create is run ...");
+        return restTemplate.postForObject(URI + "/payment/create", payment, CommonResult.class);
+    }
+
     
-    @GetMapping("/order/test1/{id}")
-    public CommonResult test1(@PathVariable("id") Integer id){
+    @GetMapping("/consumer/payment/get/{id}")
+    public CommonResult<Payment> get(@PathVariable("id") Integer id){
         System.out.println("test1 is run ...");
 //        return
         Map<String, Object> map = new HashMap<>();

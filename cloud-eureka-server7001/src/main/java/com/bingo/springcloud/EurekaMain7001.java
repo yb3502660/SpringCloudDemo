@@ -2,16 +2,17 @@ package com.bingo.springcloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 /**
  * @author:yaobin
- * @date:2021/3/9,11:59
+ * @date:2021/3/10,0:11
  */
+
 @SpringBootApplication
-@EnableEurekaClient
-public class ConsumerOrderMain9001 {
+@EnableEurekaServer
+public class EurekaMain7001 {
     public static void main(String[] args) {
-        SpringApplication.run(ConsumerOrderMain9001.class, args);
+        SpringApplication.run(EurekaMain7001.class, args);
     }
 }
