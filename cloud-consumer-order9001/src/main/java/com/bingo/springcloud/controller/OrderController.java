@@ -19,8 +19,9 @@ import java.util.Map;
 @RestController("")
 @Slf4j
 public class OrderController {
-    private final static String URI = "http://localhost:8001";
-    
+//    private final static String URI = "http://localhost:8001";
+    private final static String URI = "http://CLOUD-PAYMENT-SERVICE";
+
     @Resource
     private RestTemplate restTemplate;
 

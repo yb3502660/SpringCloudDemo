@@ -1,21 +1,16 @@
 package com.bingo.springcloud.controller;
 
-import cn.hutool.json.JSON;
-import cn.hutool.json.JSONUtil;
 import com.bingo.springcloud.entities.CommonResult;
 import com.bingo.springcloud.entities.Payment;
 import com.bingo.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * @author:yaobin
@@ -26,11 +21,10 @@ import java.util.List;
 public class PaymentController {
     @Resource
     private PaymentService paymentService;
+
     @Value("${server.port}")
     private String serverPort;
 
-    @Resource
-    private DiscoveryClient discoveryClient;
 
     @PostMapping(value = "/payment/create")
     public CommonResult create(Payment payment){
@@ -52,15 +46,5 @@ public class PaymentController {
         }else {
             return new CommonResult(444, "没有对应记录,查询ID:"+id, null);
         }
-    }
-
-    @GetMapping("/payment/discovery")
-    public Object discovery(){
-        List<String> services = discoveryClient.getServices();
-        List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
-        System.out.println("services:"+JSONUtil.toJsonStr(services));
-        System.out.println("instances:"+JSONUtil.toJsonStr(instances));
-        return services;
-
     }
 }
