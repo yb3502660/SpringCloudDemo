@@ -16,7 +16,7 @@ import java.util.Map;
  * @author:yaobin
  * @date:2021/3/9,12:01
  */
-@RestController("")
+@RestController()
 @Slf4j
 public class OrderController {
 //    private final static String URI = "http://localhost:8001";
