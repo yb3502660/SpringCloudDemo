@@ -14,7 +14,7 @@ import org.springframework.web.client.RestTemplate;
 @Configuration
 public class SpringCloudConfig {
     @Bean
-    @LoadBalanced //服务集群部署时,需要负载均衡,否则会找不到目的主机
+//    @LoadBalanced //服务集群部署时,需要负载均衡,否则会找不到目的主机
     public RestTemplate restTemplate(){
         return new RestTemplate();
     }
