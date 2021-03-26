@@ -1,6 +1,7 @@
 package com.bingo.springcloud.controller;
 
 import com.bingo.springcloud.service.PaymentService;
+import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,4 +34,15 @@ public class PaymentController {
         log.info("==result:"+result);
         return result;
     }
+
+
+    @GetMapping("/payment/circuit/{id}")
+    public String paymentCircuitBreaker(@PathVariable("id") Integer id){
+
+        String result = paymentService.paymentCircuitBreaker(id);
+        log.info("====reulst:"+result);
+        return result;
+
+    }
+
 }

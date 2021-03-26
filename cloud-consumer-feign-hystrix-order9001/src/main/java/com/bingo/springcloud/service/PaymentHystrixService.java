@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  */
 
 @Component
-@FeignClient(value = "CLOUD-PROVIDER-HYSTRIX-PAYMENT")
+@FeignClient(value = "CLOUD-PROVIDER-HYSTRIX-PAYMENT",fallback = PaymentFallbackService.class)
 public interface PaymentHystrixService {
     
     @GetMapping("/payment/hystrix/ok/{id}")
@@ -19,6 +19,10 @@ public interface PaymentHystrixService {
     
     @GetMapping("/payment/hystrix/timeout/{id}")
     public String paymentInfo_timeout(@PathVariable("id") Integer id) ;
+
+
+
+
     
 }
 
