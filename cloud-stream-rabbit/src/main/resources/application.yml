@@ -1,0 +1,15 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: producer
+  cloud:
+    stream:
+      bindings:
+        output1:
+          destination: Theme-People #可以理解为一个订阅者的通道
+          group: Group-boy
+          content-type: application/json
+          producer:
+            partitionKeyExpression: headers['partitionKey']
+            partitionCount: 2
